@@ -12,9 +12,18 @@ export class SpotifyService {
   getNewReleses() {
     const headers = new HttpHeaders({
      'Authorization': 'Bearer BQAypo55t08t17PN_p_TMJf97Tzsc0r7kx1k7duTJvP-_Vo6oHCF7b3i9nq742p7oKBC5VZBXmvHa64HOfA',
-
     });
     return  this.http.get('https://api.spotify.com/v1/browse/new-releases?limit=20', { headers });
+
+  }
+  getArtista(termino: string) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer BQAypo55t08t17PN_p_TMJf97Tzsc0r7kx1k7duTJvP-_Vo6oHCF7b3i9nq742p7oKBC5VZBXmvHa64HOfA',
+    });
+    return  this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=15" -H "Accept: application/json" -H`, { headers } );
+
+
+
 
   }
 }
